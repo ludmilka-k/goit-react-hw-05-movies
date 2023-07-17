@@ -1,7 +1,5 @@
 import axios from 'axios';
-
-const API_KEY = '183c3cacc9c38c09c14d38798ccfe9d7';
-const BASE_URL = 'https://api.themoviedb.org/3';
+import { BASE_URL, API_KEY } from './data.js'
 
 export const getTrendsMovies = async () => {
   const url = `${BASE_URL}/trending/movie/all/day?api_key=${API_KEY}`;
