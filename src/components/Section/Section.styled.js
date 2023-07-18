@@ -4,8 +4,8 @@ export const SectionContainer = styled.section`
   margin-top: 24px;
   margin-left: auto;
   margin-right: auto;
-  text-align: center;
-  //background-color: ${props => props.theme.colors.skyblue};
+  max-width: 960px;
+  // background-color: ${props => props.theme.colors.skyblue};
 `;
 
 export const Title = styled.h1`

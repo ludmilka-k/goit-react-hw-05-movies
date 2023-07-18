@@ -14,7 +14,7 @@ export const HeaderNavLink = styled(NavLink)`
   display: inline-block;
 
   font-weight: 700;
-  font-size: 60px;
+  font-size: 28px;
   text-transform: uppercase;
   padding: 8px 16px;
   color: black;

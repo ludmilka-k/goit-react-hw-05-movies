@@ -21,12 +21,12 @@ export const SharedLayout = () => {
           <Outlet />
         </Suspense>
       </main>
-      <footer>
-        <StyledContainer>
-          <p>&#169; <a href="https://github.com/ludmilka-k/goit-react-hw-05-movies" target="_blank" rel="noreferrer"><b> Developed by Ludmila Kurochkina </b></a>
-            , 2023</p>
-        </StyledContainer>
-      </footer>
+      {/*<footer>*/}
+      {/*  <StyledContainer>*/}
+      {/*    <p>&#169; <a href="https://github.com/ludmilka-k/goit-react-hw-05-movies" target="_blank" rel="noreferrer"><b> Developed by Ludmila Kurochkina </b></a>*/}
+      {/*      , 2023</p>*/}
+      {/*  </StyledContainer>*/}
+      {/*</footer>*/}
     </>
 	)
 }
