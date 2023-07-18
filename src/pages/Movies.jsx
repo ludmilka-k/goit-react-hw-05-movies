@@ -6,6 +6,7 @@ import { Searchbar } from '../components/Searchbar';
 import { Loader } from '../components/Loader';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { ErrorMessage } from '../components/ErrorMessage';
+import { Section } from '../components/Section';
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
@@ -46,9 +47,11 @@ const Movies = () => {
   return (
     <main>
       <Searchbar onSubmit={handleSubmit} />
-      {movies.length > 0 && <MoviesList movies={movies} />}
-      {isLoading && <Loader />}
-      {error && <ErrorMessage>{error}</ErrorMessage>}
+      <Section>
+        {movies.length > 0 && <MoviesList movies={movies} />}
+        {isLoading && <Loader />}
+        {error && <ErrorMessage>{error}</ErrorMessage>}
+      </Section>
     </main>
   );
 };
