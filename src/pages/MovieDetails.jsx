@@ -1,8 +1,8 @@
-import { getMovieDetails, getSearchMovies } from '../services/mtdb-api';
+import { getMovieDetails } from '../services/mtdb-api';
 import { Suspense, useEffect, useRef, useState } from 'react';
 import { Outlet, useLocation, useParams, Link } from 'react-router-dom';
-import {GoBack, MovieInfo, Aditional} from './MovieDetails.styled';
-import {Loader} from '../components/Loader';
+import { GoBack, MovieInfo, Aditional } from './MovieDetails.styled';
+import { Loader } from '../components/Loader';
 import defaultImage from '../images/no-image.jpg';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { Section } from '../components/Section';
@@ -17,15 +17,14 @@ const MovieDetails = () => {
 
   useEffect(() => {
     const getMovieById = async () => {
-      try{
+      try {
         setIsLoading(true);
         const data = await getMovieDetails(id);
         if (data === null) {
           return Notify.failure('Oops! Something went wrong!');
         }
         setInstantMovie(data);
-      }
-      catch (error) {
+      } catch (error) {
         setError(true);
         console.error(error);
       } finally {
@@ -41,7 +40,7 @@ const MovieDetails = () => {
 
   const userScore = instantMovie ? instantMovie.vote_average * 10 : null;
 
-	return (
+  return (
     <main>
       {isLoading && <Loader />}
       {error && <p>Oops! Something went wrong!</p>}
@@ -49,7 +48,7 @@ const MovieDetails = () => {
       {instantMovie && (
         <Section>
           <MovieInfo>
-            <img src={posterUrl} alt="error" />
+            <img src={posterUrl} alt='error' />
             <div>
               <h2>{instantMovie.original_title}</h2>
               <p>User Score: {userScore}%</p>
@@ -76,7 +75,7 @@ const MovieDetails = () => {
         <Outlet />
       </Suspense>
     </main>
-	)
-}
+  );
+};
 
 export default MovieDetails;

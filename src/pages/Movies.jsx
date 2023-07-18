@@ -9,7 +9,6 @@ import { ErrorMessage } from '../components/ErrorMessage';
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
-  // const [totalHits, setTotalHits] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -19,7 +18,6 @@ const Movies = () => {
       return Notify.failure('Please, write something');
     }
     setSearchParams({ query: query.trim() });
-    // setSearchInput('');
   };
 
   useEffect(() => {

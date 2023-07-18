@@ -12,7 +12,7 @@ const Reviews = () => {
 
   useEffect(() => {
     const getReviewsById = async () => {
-      try{
+      try {
         setIsLoading(true);
         const data = await getMovieReviews(id);
         const reviews = data.results;
@@ -20,8 +20,7 @@ const Reviews = () => {
           return Notify.failure('Oops! Something went wrong!');
         }
         setReviews(reviews);
-      }
-      catch (error) {
+      } catch (error) {
         setError(true);
         console.error(error);
       } finally {
@@ -31,26 +30,26 @@ const Reviews = () => {
     getReviewsById();
   }, [id]);
 
-	return (
+  return (
     <>
       {isLoading && <Loader />}
       {error && <p>Oops! Something went wrong!</p>}
-        {reviews.length > 0 ? (
-          <ul>
-            {reviews.map(review => {
-              return (
-                <li key={review.id}>
-                  <h3>Athor: {review.author}</h3>
-                  <p>{review.content}</p>
-                </li>
-              );
-            })}
-          </ul>
-        ) : (
-          <p>We don't have any reviews for this movie.</p>
-        )}
+      {reviews.length > 0 ? (
+        <ul>
+          {reviews.map(review => {
+            return (
+              <li key={review.id}>
+                <h3>Athor: {review.author}</h3>
+                <p>{review.content}</p>
+              </li>
+            );
+          })}
+        </ul>
+      ) : (
+        <p>We don't have any reviews for this movie.</p>
+      )}
     </>
-	)
-}
+  );
+};
 
-export default Reviews
+export default Reviews;

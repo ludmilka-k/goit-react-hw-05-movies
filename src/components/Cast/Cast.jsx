@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { getMovieCredits} from '../../services/mtdb-api';
+import { getMovieCredits } from '../../services/mtdb-api';
 import { Loader } from '../Loader';
 import defaultPhoto from '../../images/no-photo.png';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
@@ -13,7 +13,7 @@ const Cast = () => {
 
   useEffect(() => {
     const getCastById = async () => {
-      try{
+      try {
         setIsLoading(true);
         const data = await getMovieCredits(id);
         const cast = data.cast;
@@ -21,8 +21,7 @@ const Cast = () => {
           return Notify.failure('Oops! Something went wrong!');
         }
         setCast(cast);
-      }
-      catch (error) {
+      } catch (error) {
         setError(true);
         console.error(error);
       } finally {
@@ -32,7 +31,7 @@ const Cast = () => {
     getCastById();
   }, [id]);
 
-	return (
+  return (
     <>
       {isLoading && <Loader />}
       {error && <p>Oops! Something went wrong!</p>}
@@ -44,7 +43,7 @@ const Cast = () => {
               : defaultPhoto;
             return (
               <li key={actor.id}>
-                <img src={actorsPhoto} alt="NonPhoto" />
+                <img src={actorsPhoto} alt='NonPhoto' />
                 <p>{actor.original_name}</p>
                 <p>Character: {actor.character}</p>
               </li>
@@ -55,7 +54,7 @@ const Cast = () => {
         <p>We don't have any casts for this movie.</p>
       )}
     </>
-	)
-}
+  );
+};
 
 export default Cast;

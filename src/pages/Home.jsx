@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
-import { getTrendsMovies } from '../services/mtdb-api'
-import { MoviesList } from '../components/MoviesList'
+import { getTrendsMovies } from '../services/mtdb-api';
+import { MoviesList } from '../components/MoviesList';
 import { Section } from '../components/Section';
 import { Loader } from '../components/Loader';
-import { HTTP_ERR_MSG } from '../constants'
-import {ErrorMessage} from '../components/ErrorMessage';
-// import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { HTTP_ERR_MSG } from '../constants';
+import { ErrorMessage } from '../components/ErrorMessage';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -16,7 +15,7 @@ const Home = () => {
   useEffect(() => {
 
     const fetchTrendsMovies = async () => {
-      try{
+      try {
         setIsLoading(true);
         setError(null);
         const data = await getTrendsMovies();
@@ -29,30 +28,20 @@ const Home = () => {
       } finally {
         setIsLoading(false);
       }
-    }
-    fetchTrendsMovies()
-  }, [])
+    };
+    fetchTrendsMovies();
+  }, []);
 
   return (
     <main>
-      <Section title="Trending today">
-        {movies.length > 0 && <MoviesList movies={movies}/>}
+      <Section title='Trending today'>
+        {movies.length > 0 && <MoviesList movies={movies} />}
         {isLoading && <Loader />}
         {hasError && <ErrorMessage>{error}</ErrorMessage>}
       </Section>
     </main>
-  )
-}
-
-
-
-
-
-
-
-
-
-
+  );
+};
 
 
 export default Home;
